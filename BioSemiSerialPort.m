@@ -13,7 +13,7 @@ classdef BioSemiSerialPort
     % Example:
     %    sp = BioSemiSerialPort(); % open serial port 
     %    sp.testTriggers; % test pins 1-8 
-    %    sp.sendTrigger(5); % test trigger '5' to eeg system  
+    %    sp.sendTrigger(5); % send trigger '5' to eeg system  
     %    sp.findSerialPortName(); % for troubleshoot if not connecting
     %    properly
     % Other m-files required: none
