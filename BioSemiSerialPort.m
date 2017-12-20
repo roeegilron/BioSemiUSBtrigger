@@ -87,7 +87,7 @@ classdef BioSemiSerialPort
             takemeasure = 0;
             while takemeasure == 0
                 takemeasure = input('is cable idsconnected?\n(1 = yes)');
-                pause(1);
+                pause(3);% makes sure if cable disconnected recently it is purged
                 instrreset
                 serialInfo = instrhwinfo('serial');
                 avportst1 = serialInfo.AvailableSerialPorts;
@@ -98,7 +98,7 @@ classdef BioSemiSerialPort
             takemeasure = 0;
             while takemeasure == 0
                 takemeasure = input('is cable connected?\n(1 = yes)');
-                pause(1);
+                pause(3); % gives system time to load driver 
                 instrreset
                 serialInfo = instrhwinfo('serial');
                 avportst2 = serialInfo.AvailableSerialPorts;
@@ -124,4 +124,3 @@ classdef BioSemiSerialPort
         end
     end
 end
-
