@@ -7,8 +7,8 @@ https://www.biosemi.com/faq/USB%20Trigger%20interface%20cable.htm
 
 Examples: 
 
-`sp = BioSemiSerialPort();`
-`sp = BioSemiSerialPort(); % open serial port `
-`sp.testTriggers; % test pins 1-8`
-`sp.sendTrigger(5); % test trigger '5' to eeg system`
-`sp.findSerialPortName(); % for troubleshooting if not connecting properly`
+`sp = BioSemiSerialPort();` 
+`sp = BioSemiSerialPort(); % open serial port ` 
+`sp.testTriggers; % test pins 1-8` 
+`sp.sendTrigger(5); % test trigger '5' to eeg system` 
+`sp.findSerialPortName(); % for troubleshooting if not connecting properly` 
