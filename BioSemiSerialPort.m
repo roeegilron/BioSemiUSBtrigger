@@ -36,6 +36,7 @@ classdef BioSemiSerialPort
     end
     methods (Static = true)
         function portnames = getPortNames()
+            % set serial port names for each os, may need modifcation
             portnames.mac = '/dev/cu.usbserial-DN17M98C';
             portnames.pc = 'COM3';
             portnames.linux = '/dev/cu.usbserial-DN17M98C';
@@ -56,7 +57,7 @@ classdef BioSemiSerialPort
             serialInfo = instrhwinfo('serial');
             avportst = serialInfo.AvailableSerialPorts;
             pnms = obj.getPortNames;
-            % open serial port (serial COM name different across OS's)
+            % get serial port name(serial COM name different across OS's)
             if ismac % mac systems
                 % check to see if cable is connnected
                 sercheck  = cellfun(@(x) any(strfind(x,pnms.mac)),...
@@ -105,7 +106,7 @@ classdef BioSemiSerialPort
             end
             fprintf('\n\n BioSemi serial port name is:\n')
             cellfun(@(x) fprintf('%s\n',x),setxor(avportst1,avportst2))
-            fprintf('Please check one of these strings matches correct OS on lines 39-41\n')
+            fprintf('Please check one of these strings matches correct OS on lines 40-42\n')
         end
         function wipePorts(obj)
             instrreset
@@ -117,10 +118,16 @@ classdef BioSemiSerialPort
             end
         end
         function sendTrigger(obj,code)
-            if code > 255
-                warning('This cable only supports triggers in the range of 1-255 (int) - 8 bits');
+            try
+                fwrite(obj.sp,uint8(code))
+                if code > 255
+                    warning('This cable only supports triggers in the range of 1-255 (int) - 8 bits');
+                end
+            catch
+                if ~isvalid(obj.sp) % calbe not connected
+                    error('cable is not connected anymore / was disconneted. Please delete object and reconnect cable'); 
+                end
             end
-            fwrite(obj.sp,uint8(code))
         end
     end
 end
