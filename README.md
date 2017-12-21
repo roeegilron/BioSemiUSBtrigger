@@ -13,4 +13,4 @@ hardware device](https://www.biosemi.com/faq/USB%20Trigger%20interface%20cable.h
 
 `sp.findSerialPortName(); % for troubleshooting if not connecting properly` 
 
-Note, if very fast (sub milisecond) and accurate serial port latency is important consider implementing [this interface](http://apps.usd.edu/coglab/psyc770/IO64.html) (pc only) to open serial port. 
+Note, if very fast (sub milisecond) serial port latency is important consider implementing [this interface](http://apps.usd.edu/coglab/psyc770/IO64.html) (pc only) to open serial port. 
