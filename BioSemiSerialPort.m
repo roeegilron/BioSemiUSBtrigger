@@ -78,6 +78,9 @@ classdef BioSemiSerialPort
                     'DataBits',8,...
                     'StopBits',1);
                 fopen(obj.sp);
+                if isvalid(obj.sp)
+                    fprintf('succesfully connected to serial port %s\n',obj.sp.Port);
+                end
             end
             
         end
