@@ -1,7 +1,7 @@
 # BioSemiUSBtrigger
 Interface to send triggers to BioSemi system.
 
-`BioSemiSerialPort` - This is a class (function) that sends triggers to BioSemi EEG systems. 
+`BioSemiSerialPort` - This is a class (function) that sends triggers to a BioSemi EEG system. 
 This function requires the purchase (or manufacture) of a [USB to serial 
 hardware device](https://www.biosemi.com/faq/USB%20Trigger%20interface%20cable.htm). 
 
