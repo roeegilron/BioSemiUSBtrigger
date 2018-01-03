@@ -19,6 +19,7 @@ classdef BioSemiSerialPort
     % Other m-files required: none
     % Subfunctions: none
     % MAT-files required: none
+    % Toolboxes requires: instrument control toolbox 
     %
     % See also: instrhwinfo,instrreset,serial 
     
